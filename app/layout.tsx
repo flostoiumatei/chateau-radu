@@ -1,8 +1,14 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Cinzel, EB_Garamond } from 'next/font/google';
 import { Providers } from '@/components/providers/Providers';
 import { SEO, BRAND } from '@/lib/constants';
 import './globals.css';
+
+export const viewport: Viewport = {
+  themeColor: '#5a1a2a',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 // Font configurations
 const cormorant = Cormorant_Garamond({
