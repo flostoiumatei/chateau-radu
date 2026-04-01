@@ -10,20 +10,14 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 function AnimatedCounter({ value, suffix = '' }: { value: string; suffix?: string }) {
   const motionValue = useMotionValue(0);
   const shouldReduceMotion = useReducedMotion();
-
-  // Extract number from value (e.g., "100%" -> 100)
   const numericValue = parseInt(value.replace(/\D/g, ''), 10);
 
-  // Initialize display value based on reduced motion preference
   const [displayValue, setDisplayValue] = useState(() =>
     shouldReduceMotion ? value : '0'
   );
 
   useEffect(() => {
-    // Skip animation if reduced motion is preferred
-    if (shouldReduceMotion) {
-      return;
-    }
+    if (shouldReduceMotion) return;
 
     const controls = animate(motionValue, numericValue, {
       duration: 2,
@@ -44,44 +38,32 @@ function AnimatedCounter({ value, suffix = '' }: { value: string; suffix?: strin
   );
 }
 
-// Sister card component
-function SisterCard({ sister, index }: { sister: typeof STORY_COPY.sisters[number]; index: number }) {
-  const isGemela = sister.description.includes('Geamănă');
-
+// Decorative vine SVG element
+function VineDecoration({ className = '' }: { className?: string }) {
   return (
-    <ScrollReveal delay={0.2 + index * 0.15}>
-      <m.div
-        className="relative text-center p-6 bg-cream/5 border border-gold/20 backdrop-blur-sm"
-        whileHover={{ scale: 1.02, borderColor: 'var(--color-gold)' }}
-        transition={{ duration: MOTION.duration.fast }}
-      >
-        {/* Twin indicator */}
-        {isGemela && (
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span className="px-3 py-1 bg-gold text-burgundy-deep text-[10px] font-brand tracking-wider uppercase">
-              Geamănă
-            </span>
-          </div>
-        )}
-
-        {/* Sister initial in decorative circle */}
-        <div className="w-20 h-20 mx-auto mb-4 rounded-full border-2 border-gold/40 flex items-center justify-center">
-          <span className="font-display italic text-gold text-3xl">
-            {sister.name.charAt(0)}
-          </span>
-        </div>
-
-        <h3 className="font-brand text-cream text-lg tracking-wider mb-1">
-          {sister.name}
-        </h3>
-        <p className="font-display italic text-gold text-sm mb-3">
-          {sister.role}
-        </p>
-        <p className="font-body text-cream/80 text-sm">
-          {sister.description.replace('Geamănă · ', '')}
-        </p>
-      </m.div>
-    </ScrollReveal>
+    <svg viewBox="0 0 200 60" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0 30 Q 25 10 50 30 T 100 30 T 150 30 T 200 30"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeOpacity="0.3"
+        fill="none"
+      />
+      <circle cx="50" cy="30" r="4" fill="currentColor" fillOpacity="0.4" />
+      <circle cx="100" cy="30" r="4" fill="currentColor" fillOpacity="0.4" />
+      <circle cx="150" cy="30" r="4" fill="currentColor" fillOpacity="0.4" />
+      {/* Grape clusters */}
+      <g transform="translate(45, 35)">
+        <circle cx="0" cy="0" r="2" fill="currentColor" fillOpacity="0.3" />
+        <circle cx="4" cy="2" r="2" fill="currentColor" fillOpacity="0.3" />
+        <circle cx="2" cy="5" r="2" fill="currentColor" fillOpacity="0.3" />
+      </g>
+      <g transform="translate(145, 35)">
+        <circle cx="0" cy="0" r="2" fill="currentColor" fillOpacity="0.3" />
+        <circle cx="4" cy="2" r="2" fill="currentColor" fillOpacity="0.3" />
+        <circle cx="2" cy="5" r="2" fill="currentColor" fillOpacity="0.3" />
+      </g>
+    </svg>
   );
 }
 
@@ -106,11 +88,10 @@ export function Story() {
 
   const parallaxY1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const parallaxY2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const parallaxY3 = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
   return (
     <section id="story" ref={containerRef} className="relative overflow-hidden">
-      {/* Panel 1: Povestea - Introducere */}
+      {/* Panel 1: Introducere */}
       <div className="relative min-h-screen flex items-center bg-burgundy-deep noise-overlay">
         {/* Vineyard pattern background */}
         <m.div
@@ -142,6 +123,10 @@ export function Story() {
             </h2>
           </ScrollReveal>
 
+          <ScrollReveal delay={0.15}>
+            <VineDecoration className="w-48 mx-auto text-gold mb-8" />
+          </ScrollReveal>
+
           <ScrollReveal delay={0.2}>
             <p className="font-body text-cream/90 text-fluid-lg leading-relaxed max-w-2xl mx-auto">
               {STORY_COPY.body1}
@@ -150,13 +135,12 @@ export function Story() {
         </div>
       </div>
 
-      {/* Panel 2: Gemenele și Viziunea */}
+      {/* Panel 2: Citat și Viziune */}
       <div className="relative min-h-screen flex items-center bg-cream">
         <m.div
           className="absolute inset-0"
           style={shouldReduceMotion || isMobile ? {} : { y: parallaxY2 }}
         >
-          {/* Subtle background text */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
             <span className="font-brand text-[12vw] md:text-[15vw] text-burgundy/[0.04] tracking-[0.2em] select-none whitespace-nowrap">
               SURORI
@@ -185,39 +169,44 @@ export function Story() {
         </div>
       </div>
 
-      {/* Panel 3: Cele 3 Surori */}
-      <div className="relative min-h-screen flex items-center bg-burgundy-deep noise-overlay">
-        <m.div
-          className="absolute inset-0"
-          style={shouldReduceMotion || isMobile ? {} : { y: parallaxY3 }}
-        >
-          {/* Background gradient circles */}
+      {/* Panel 3: Simbolul Surorilor */}
+      <div className="relative py-32 bg-burgundy-deep noise-overlay">
+        <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-burgundy/20 rounded-full blur-3xl" />
-        </m.div>
+        </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 py-24">
-          <div className="text-center mb-12">
+        <div className="relative z-10 max-w-5xl mx-auto px-4">
+          <div className="text-center mb-16">
             <ScrollReveal>
-              <SectionLabel light>CELE TREI SURORI</SectionLabel>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h2 className="font-display italic text-gold text-fluid-4xl mt-4 mb-2">
-                Elena, Maria & Ana
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.15}>
-              <p className="font-display italic text-cream/80 text-fluid-base">
+              <p className="font-display italic text-cream/80 text-fluid-lg mb-8">
                 {STORY_COPY.sistersNote}
               </p>
             </ScrollReveal>
-          </div>
 
-          {/* Sisters grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
-            {STORY_COPY.sisters.map((sister, index) => (
-              <SisterCard key={sister.name} sister={sister} index={index} />
-            ))}
+            {/* Three interlinked circles representing the sisters */}
+            <ScrollReveal delay={0.2}>
+              <div className="flex justify-center items-center gap-0 my-12">
+                <m.div
+                  className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-gold/60 -mr-4"
+                  whileInView={{ scale: [0.8, 1], opacity: [0, 1] }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0 }}
+                />
+                <m.div
+                  className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-gold bg-gold/10 z-10"
+                  whileInView={{ scale: [0.8, 1], opacity: [0, 1] }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
+                />
+                <m.div
+                  className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-gold/60 -ml-4"
+                  whileInView={{ scale: [0.8, 1], opacity: [0, 1] }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                />
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Stats row */}
@@ -246,7 +235,7 @@ export function Story() {
         </div>
       </div>
 
-      {/* Panel 4: Savoare - Cuvée */}
+      {/* Panel 4: Savoare */}
       <div className="relative py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <ScrollReveal>
@@ -257,9 +246,12 @@ export function Story() {
               Savoare
             </h2>
           </ScrollReveal>
+          <ScrollReveal delay={0.15}>
+            <VineDecoration className="w-48 mx-auto text-burgundy mb-6" />
+          </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="font-body text-ink/85 text-fluid-lg leading-relaxed max-w-2xl mx-auto mb-8">
-              Vinul care ne unește. Un Muscat Ottonel de excepție, creat cu dragoste de trei surori pentru cei care știu să savureze momentele prețioase ale vieții.
+              Vinul care ne unește. Un Muscat Ottonel de excepție, creat cu dragoste pentru cei care știu să savureze momentele prețioase ale vieții.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>

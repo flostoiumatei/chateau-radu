@@ -68,16 +68,11 @@ export const HERO_COPY = {
 export const STORY_COPY = {
   label: 'POVESTEA NOASTRĂ',
   heading: 'Trei surori, o singură pasiune',
-  body1: 'Château Radu poartă numele bunicului nostru, Radu, cel care a plantat primele viței de Muscat Ottonel în dealurile pline de soare ale României. Noi suntem Elena, Maria și Ana — trei surori unite de dragostea pentru pământ, vie și arta vinului.',
-  body2: 'Savoare este vinul care ne reprezintă — un cuvée în care fiecare dintre noi și-a pus sufletul. Gemenele Maria și Ana sunt inima cramei: Maria, cu intuiția ei artistică, transformă strugurii în poezie lichidă; Ana, perfecționista, veghează fiecare etapă cu o rigoare aproape sacră. Iar eu, Elena, păstrez viziunea bunicului vie.',
-  body3: 'Numele Savoare vine din dorința noastră de a crea un vin care să fie savurat cu adevărat — încet, cu dragoste, în compania celor dragi. Este omagiul nostru adus bunicului Radu și pământului care ne-a crescut.',
+  body1: 'Château Radu poartă numele bunicului nostru — cel care a plantat primele viței de Muscat Ottonel în dealurile pline de soare ale României. Suntem trei surori, două dintre noi gemene, unite de aceeași dragoste pentru pământ, vie și arta vinului.',
+  body2: 'Savoare este vinul care ne reprezintă — un cuvée în care fiecare dintre noi și-a pus sufletul. Împreună îmbinăm tradiția cu inovația, intuiția artistică cu rigoarea, viziunea cu pasiunea.',
+  body3: 'Numele Savoare vine din dorința noastră de a crea un vin care să fie savurat cu adevărat — încet, cu dragoste, în compania celor dragi. Este omagiul nostru adus bunicului și pământului care ne-a crescut.',
   frenchAccent: '« Mis en bouteille avec amour et passion »',
-  sistersNote: 'Două gemene, o soră mai mare, aceeași pasiune.',
-  sisters: [
-    { name: 'Elena', role: 'Vizionara', description: 'Păstrează tradiția vie' },
-    { name: 'Maria', role: 'Artista', description: 'Geamănă · Creează aromele' },
-    { name: 'Ana', role: 'Perfecționista', description: 'Geamănă · Garantează excelența' },
-  ],
+  sistersNote: 'Trei surori. Două gemene. O singură pasiune.',
   stats: [
     { value: '3', label: 'Surori' },
     { value: '2', label: 'Gemene' },
