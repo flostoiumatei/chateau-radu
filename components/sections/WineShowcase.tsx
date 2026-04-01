@@ -64,15 +64,15 @@ export function WineShowcase() {
     offset: ['start start', 'end end'],
   });
 
-  // Transform values for each frame (optimized for 300vh)
-  const frame0Opacity = useTransform(scrollYProgress, [0, 0.1, 0.25], [0, 1, 0]);
-  const frame1Opacity = useTransform(scrollYProgress, [0.25, 0.35, 0.5], [0, 1, 0]);
-  const frame2Opacity = useTransform(scrollYProgress, [0.5, 0.6, 0.75], [0, 1, 0]);
-  const frame3Opacity = useTransform(scrollYProgress, [0.75, 0.85, 1], [0, 1, 1]);
+  // Transform values for each frame (optimized for 200vh)
+  const frame0Opacity = useTransform(scrollYProgress, [0, 0.15, 0.35], [0, 1, 0]);
+  const frame1Opacity = useTransform(scrollYProgress, [0.3, 0.45, 0.6], [0, 1, 0]);
+  const frame2Opacity = useTransform(scrollYProgress, [0.55, 0.7, 0.85], [0, 1, 0]);
+  const frame3Opacity = useTransform(scrollYProgress, [0.8, 0.9, 1], [0, 1, 1]);
   const frameOpacities = [frame0Opacity, frame1Opacity, frame2Opacity, frame3Opacity];
 
-  const dropScale = useTransform(scrollYProgress, [0.2, 0.6], [0.5, 1]);
-  const dropOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const dropScale = useTransform(scrollYProgress, [0.2, 0.8], [0.5, 1]);
+  const dropOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
   // Mobile version - vertical stack
   if (isMobile || shouldReduceMotion) {
@@ -138,7 +138,7 @@ export function WineShowcase() {
       id="wine"
       ref={containerRef}
       className="relative bg-cream"
-      style={{ height: '300vh' }}
+      style={{ height: '200vh' }}
     >
       {/* Sticky container */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
