@@ -47,14 +47,12 @@ export function WineShowcase() {
   const shouldReduceMotion = useReducedMotion();
   // Start with true to prevent flash of desktop version on mobile
   const [isMobile, setIsMobile] = useState(true);
-  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.matchMedia('(max-width: 1024px)').matches);
     };
     checkMobile();
-    setIsHydrated(true);
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -122,17 +120,7 @@ export function WineShowcase() {
     );
   }
 
-  // Desktop version - sticky scroll (only show after hydration on desktop)
-  if (!isHydrated) {
-    return (
-      <section id="wine" className="bg-cream section-padding">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <SectionLabel>Savoare 2025</SectionLabel>
-        </div>
-      </section>
-    );
-  }
-
+  // Desktop version - sticky scroll
   return (
     <section
       id="wine"
