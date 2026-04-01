@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { m, useMotionValue, useReducedMotion, animate } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { VINTAGES, MOTION } from '@/lib/constants';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -63,45 +63,46 @@ function VintageCard({ vintage, index }: { vintage: typeof VINTAGES[number]; ind
 }
 
 export function VintageTimeline() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
   const shouldReduceMotion = useReducedMotion();
-  const [constraints, setConstraints] = useState({ left: 0, right: 0 });
-  const [isDragging, setIsDragging] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(
+    VINTAGES.findIndex((v) => v.status === 'current')
+  );
 
+  // Scroll to current vintage on mount
   useEffect(() => {
-    const updateConstraints = () => {
-      if (scrollRef.current && containerRef.current) {
-        const scrollWidth = scrollRef.current.scrollWidth;
-        const containerWidth = containerRef.current.clientWidth;
-        setConstraints({
-          left: -(scrollWidth - containerWidth + 32), // 32px for padding
-          right: 0,
-        });
+    if (scrollRef.current && !shouldReduceMotion) {
+      const currentIndex = VINTAGES.findIndex((v) => v.status === 'current');
+      if (currentIndex >= 0) {
+        const cardWidth = 304; // w-72 = 288px + gap
+        const containerWidth = scrollRef.current.clientWidth;
+        const scrollTarget = currentIndex * cardWidth - containerWidth / 2 + cardWidth / 2;
+
+        setTimeout(() => {
+          scrollRef.current?.scrollTo({
+            left: Math.max(0, scrollTarget),
+            behavior: 'smooth',
+          });
+        }, 500);
       }
+    }
+  }, [shouldReduceMotion]);
+
+  // Track active card on scroll
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const handleScroll = () => {
+      const cardWidth = 304;
+      const scrollLeft = el.scrollLeft + el.clientWidth / 2;
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveIndex(Math.min(Math.max(0, index), VINTAGES.length - 1));
     };
 
-    updateConstraints();
-    window.addEventListener('resize', updateConstraints);
-    return () => window.removeEventListener('resize', updateConstraints);
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    return () => el.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Center on current vintage on mount
-  useEffect(() => {
-    const currentIndex = VINTAGES.findIndex((v) => v.status === 'current');
-    if (currentIndex > 0 && containerRef.current && !shouldReduceMotion) {
-      const cardWidth = 320; // approximate card width + gap
-      const targetX = -(currentIndex * cardWidth - containerRef.current.clientWidth / 2 + cardWidth / 2);
-      const clampedX = Math.max(constraints.left, Math.min(constraints.right, targetX));
-
-      animate(x, clampedX, {
-        duration: MOTION.duration.slow,
-        ease: MOTION.easing,
-        delay: 0.5,
-      });
-    }
-  }, [constraints, shouldReduceMotion, x]);
 
   return (
     <section className="bg-cream section-padding overflow-hidden">
@@ -124,56 +125,35 @@ export function VintageTimeline() {
         </div>
       </div>
 
-      {/* Horizontal scroll container */}
+      {/* Native horizontal scroll */}
       <div
-        ref={containerRef}
-        className="relative overflow-hidden cursor-grab active:cursor-grabbing"
+        ref={scrollRef}
+        className="flex gap-6 px-4 md:px-8 py-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        <m.div
-          ref={scrollRef}
-          className="flex gap-6 px-4 md:px-8 py-4"
-          style={{ x }}
-          drag="x"
-          dragConstraints={constraints}
-          dragElastic={0.1}
-          dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
-          onDragStart={() => setIsDragging(true)}
-          onDragEnd={() => setIsDragging(false)}
-        >
-          {/* Spacer for centering */}
-          <div className="flex-shrink-0 w-[calc(50vw-160px)] md:w-[calc(50vw-200px)]" />
+        {/* Spacer for centering */}
+        <div className="flex-shrink-0 w-[calc(50vw-160px)] md:w-[calc(50vw-200px)]" />
 
-          {VINTAGES.map((vintage, index) => (
-            <VintageCard key={vintage.year} vintage={vintage} index={index} />
-          ))}
+        {VINTAGES.map((vintage, index) => (
+          <div key={vintage.year} className="snap-center">
+            <VintageCard vintage={vintage} index={index} />
+          </div>
+        ))}
 
-          {/* Spacer for centering */}
-          <div className="flex-shrink-0 w-[calc(50vw-160px)] md:w-[calc(50vw-200px)]" />
-        </m.div>
-
-        {/* Drag hint (mobile) */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-2 pointer-events-none md:hidden">
-          <m.span
-            className="font-body text-xs text-ink/70"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isDragging ? 0 : 1 }}
-            transition={{ duration: MOTION.duration.fast }}
-          >
-            ← Glisați pentru a explora →
-          </m.span>
-        </div>
+        {/* Spacer for centering */}
+        <div className="flex-shrink-0 w-[calc(50vw-160px)] md:w-[calc(50vw-200px)]" />
       </div>
 
-      {/* Timeline indicator dots */}
+      {/* Indicator dots */}
       <ScrollReveal className="mt-8">
         <div className="flex justify-center gap-3">
-          {VINTAGES.map((vintage) => (
+          {VINTAGES.map((vintage, index) => (
             <div
               key={vintage.year}
-              className={`w-2 h-2 rounded-full transition-all ${
-                vintage.status === 'current'
+              className={`h-2 rounded-full transition-all ${
+                index === activeIndex
                   ? 'bg-gold w-8'
-                  : 'bg-burgundy/30'
+                  : 'bg-burgundy/30 w-2'
               }`}
             />
           ))}
