@@ -83,16 +83,8 @@ export function Hero() {
       id="hero"
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/images/brand-hero.png)',
-        }}
-      />
-
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-burgundy-deep/85" />
+      {/* Solid burgundy background */}
+      <div className="absolute inset-0 bg-burgundy-deep" />
 
       {/* Noise texture overlay */}
       <div className="absolute inset-0 noise-overlay" />
