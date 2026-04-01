@@ -7,6 +7,7 @@ import { Hero } from '@/components/sections/Hero';
 import { Story } from '@/components/sections/Story';
 import { Terroir } from '@/components/sections/Terroir';
 import { Pairing } from '@/components/sections/Pairing';
+import { BrandGallery } from '@/components/sections/BrandGallery';
 import { WineClub } from '@/components/sections/WineClub';
 import { Reservation } from '@/components/sections/Reservation';
 import { Contact } from '@/components/sections/Contact';
@@ -54,6 +55,9 @@ export default function Home() {
 
         {/* Story / Parallax section */}
         <Story />
+
+        {/* Brand Gallery */}
+        <BrandGallery />
 
         {/* Tasting Notes (interactive wheel) */}
         <TastingNotes />

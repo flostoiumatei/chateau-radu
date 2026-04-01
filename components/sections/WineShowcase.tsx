@@ -45,13 +45,16 @@ function WineDrop({ className = '' }: { className?: string }) {
 export function WineShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = useState(false);
+  // Start with true to prevent flash of desktop version on mobile
+  const [isMobile, setIsMobile] = useState(true);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.matchMedia('(max-width: 1024px)').matches);
     };
     checkMobile();
+    setIsHydrated(true);
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -61,15 +64,15 @@ export function WineShowcase() {
     offset: ['start start', 'end end'],
   });
 
-  // Transform values for each frame
-  const frame0Opacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [0, 1, 0]);
-  const frame1Opacity = useTransform(scrollYProgress, [0.25, 0.4, 0.5], [0, 1, 0]);
-  const frame2Opacity = useTransform(scrollYProgress, [0.5, 0.65, 0.75], [0, 1, 0]);
-  const frame3Opacity = useTransform(scrollYProgress, [0.75, 0.9, 1], [0, 1, 1]);
+  // Transform values for each frame (optimized for 300vh)
+  const frame0Opacity = useTransform(scrollYProgress, [0, 0.1, 0.25], [0, 1, 0]);
+  const frame1Opacity = useTransform(scrollYProgress, [0.25, 0.35, 0.5], [0, 1, 0]);
+  const frame2Opacity = useTransform(scrollYProgress, [0.5, 0.6, 0.75], [0, 1, 0]);
+  const frame3Opacity = useTransform(scrollYProgress, [0.75, 0.85, 1], [0, 1, 1]);
   const frameOpacities = [frame0Opacity, frame1Opacity, frame2Opacity, frame3Opacity];
 
-  const dropScale = useTransform(scrollYProgress, [0.3, 0.7], [0.5, 1]);
-  const dropOpacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
+  const dropScale = useTransform(scrollYProgress, [0.2, 0.6], [0.5, 1]);
+  const dropOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
 
   // Mobile version - vertical stack
   if (isMobile || shouldReduceMotion) {
@@ -119,13 +122,23 @@ export function WineShowcase() {
     );
   }
 
-  // Desktop version - sticky scroll
+  // Desktop version - sticky scroll (only show after hydration on desktop)
+  if (!isHydrated) {
+    return (
+      <section id="wine" className="bg-cream section-padding">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <SectionLabel>Savoare 2025</SectionLabel>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="wine"
       ref={containerRef}
       className="relative bg-cream"
-      style={{ height: '400vh' }}
+      style={{ height: '300vh' }}
     >
       {/* Sticky container */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
