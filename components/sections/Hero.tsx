@@ -96,7 +96,7 @@ export function Hero() {
 
         {/* Left: Text content */}
         <m.div
-          className="flex-1 flex items-center justify-center px-6 md:px-12 lg:px-16 py-24 lg:py-0"
+          className="flex-1 flex items-center justify-center px-6 md:px-12 lg:px-16 py-16 lg:py-0"
           style={shouldReduceMotion ? {} : { y: contentY, opacity }}
           variants={containerVariants}
           initial="hidden"
@@ -112,7 +112,7 @@ export function Hero() {
             </m.p>
 
             {/* Main title with letter animation */}
-            <h1 className="font-brand text-cream text-fluid-hero tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.15em] leading-tight mb-4">
+            <h1 className="font-brand text-cream text-[11vw] sm:text-[8vw] lg:text-fluid-hero tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.15em] leading-tight mb-4 whitespace-nowrap">
               <AnimatedTitle text={HERO_COPY.title} />
             </h1>
 
@@ -147,7 +147,7 @@ export function Hero() {
 
             {/* Tagline */}
             <m.p
-              className="font-display italic text-cream/90 text-fluid-lg mb-12"
+              className="font-display italic text-cream/90 text-fluid-lg mb-8 lg:mb-12"
               variants={itemVariants}
             >
               {HERO_COPY.tagline}
@@ -164,7 +164,7 @@ export function Hero() {
                   e.preventDefault();
                   handleScrollDown();
                 }}
-                className="btn-primary min-w-[180px]"
+                className="btn-primary min-w-[180px] whitespace-nowrap text-xs sm:text-sm"
               >
                 <span>{HERO_COPY.ctaPrimary}</span>
               </a>
@@ -177,7 +177,7 @@ export function Hero() {
                     section.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth' });
                   }
                 }}
-                className="btn-secondary min-w-[180px]"
+                className="btn-secondary min-w-[180px] whitespace-nowrap text-xs sm:text-sm"
               >
                 {HERO_COPY.ctaSecondary}
               </a>
