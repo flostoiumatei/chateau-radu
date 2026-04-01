@@ -196,7 +196,7 @@ export function WineShowcase() {
                   {frame.title}
                 </h3>
                 {'description' in frame && frame.description && (
-                  <p className="font-body text-ink/70 text-fluid-base">
+                  <p className="font-body text-ink/80 text-fluid-base">
                     {frame.description}
                   </p>
                 )}
@@ -265,7 +265,7 @@ export function WineShowcase() {
                       {frame.title}
                     </h3>
                     {'description' in frame && frame.description && (
-                      <p className="font-body text-ink/70 text-fluid-lg max-w-md">
+                      <p className="font-body text-ink/80 text-fluid-lg max-w-md">
                         {frame.description}
                       </p>
                     )}

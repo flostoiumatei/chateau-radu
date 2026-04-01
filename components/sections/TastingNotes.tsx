@@ -241,7 +241,7 @@ export function TastingNotes() {
                     <h3 className="font-brand text-gold text-fluid-xl tracking-wider uppercase mb-4">
                       {TASTING_COPY.sensoryWheel[activeSegment].segment}
                     </h3>
-                    <p className="font-body text-cream/80 text-fluid-base leading-relaxed">
+                    <p className="font-body text-cream/90 text-fluid-base leading-relaxed">
                       {TASTING_COPY.sensoryWheel[activeSegment].description}
                     </p>
                   </m.div>
@@ -253,7 +253,7 @@ export function TastingNotes() {
                     exit={{ opacity: 0 }}
                     className="text-center lg:text-left"
                   >
-                    <p className="font-display italic text-cream/60 text-fluid-lg">
+                    <p className="font-display italic text-cream/80 text-fluid-lg">
                       Explorați fiecare segment al roții senzoriale pentru a descoperi nuanțele vinului Savoare.
                     </p>
                   </m.div>
@@ -271,11 +271,11 @@ export function TastingNotes() {
                 <h3 className="font-brand text-gold text-fluid-sm tracking-[0.2em] uppercase mb-4">
                   {card.title}
                 </h3>
-                <p className="font-body text-cream/80 text-fluid-base mb-6 min-h-[80px]">
+                <p className="font-body text-cream/90 text-fluid-base mb-6 min-h-[80px]">
                   {card.description}
                 </p>
                 <IntensityBar value={card.intensity} />
-                <span className="font-body text-cream/50 text-xs mt-2 block text-right">
+                <span className="font-body text-cream/75 text-xs mt-2 block text-right">
                   Intensitate: {card.intensity}%
                 </span>
               </div>

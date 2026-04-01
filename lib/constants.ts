@@ -67,14 +67,21 @@ export const HERO_COPY = {
 
 export const STORY_COPY = {
   label: 'POVESTEA NOASTRĂ',
-  heading: 'Un vin născut din pasiune',
-  body1: 'Château Radu s-a născut dintr-o viziune singulară: să ducă soiul Muscat Ottonel la cea mai înaltă expresie a sa, captând sufletul fiecărei recolte printr-o atenție meticuloasă față de vie și de pivniță.',
-  body2: 'Cuvée-ul Savoare — savoare în română — celebrează bogăția aromatică a acestui soi delicat, vinificat cu o grijă ce respectă caracterul natural al fructului. Elegant, vibrant, inconfundabil.',
+  heading: 'Trei surori, o singură pasiune',
+  body1: 'Château Radu poartă numele bunicului nostru, Radu, cel care a plantat primele viței de Muscat Ottonel în dealurile pline de soare ale României. Noi suntem Elena, Maria și Ana — trei surori unite de dragostea pentru pământ, vie și arta vinului.',
+  body2: 'Savoare este vinul care ne reprezintă — un cuvée în care fiecare dintre noi și-a pus sufletul. Gemenele Maria și Ana sunt inima cramei: Maria, cu intuiția ei artistică, transformă strugurii în poezie lichidă; Ana, perfecționista, veghează fiecare etapă cu o rigoare aproape sacră. Iar eu, Elena, păstrez viziunea bunicului vie.',
+  body3: 'Numele Savoare vine din dorința noastră de a crea un vin care să fie savurat cu adevărat — încet, cu dragoste, în compania celor dragi. Este omagiul nostru adus bunicului Radu și pământului care ne-a crescut.',
   frenchAccent: '« Mis en bouteille avec amour et passion »',
+  sistersNote: 'Două gemene, o soră mai mare, aceeași pasiune.',
+  sisters: [
+    { name: 'Elena', role: 'Vizionara', description: 'Păstrează tradiția vie' },
+    { name: 'Maria', role: 'Artista', description: 'Geamănă · Creează aromele' },
+    { name: 'Ana', role: 'Perfecționista', description: 'Geamănă · Garantează excelența' },
+  ],
   stats: [
-    { value: '100%', label: 'Muscat Ottonel' },
-    { value: '2025', label: 'Primul Millésime' },
-    { value: '750ml', label: 'Format Tradițional' },
+    { value: '3', label: 'Surori' },
+    { value: '2', label: 'Gemene' },
+    { value: '1', label: 'Pasiune' },
   ],
 } as const;
 

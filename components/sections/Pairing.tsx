@@ -26,7 +26,7 @@ export function Pairing() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <p className="font-body text-ink/60 text-fluid-base mt-4 max-w-lg mx-auto">
+            <p className="font-body text-ink/75 text-fluid-base mt-4 max-w-lg mx-auto">
               Descoperă combinațiile perfecte pentru a pune în valoare aromele unice ale vinului nostru.
             </p>
           </ScrollReveal>
@@ -43,7 +43,7 @@ export function Pairing() {
                   ${
                     activeCategory === pairing.id
                       ? 'text-burgundy'
-                      : 'text-muted hover:text-burgundy'
+                      : 'text-ink/70 hover:text-burgundy'
                   }
                 `}
               >
@@ -80,7 +80,7 @@ export function Pairing() {
                 <h3 className="font-display italic text-burgundy text-fluid-2xl mb-4">
                   {activePairing.category}
                 </h3>
-                <p className="font-body text-ink/70 text-fluid-base leading-relaxed">
+                <p className="font-body text-ink/80 text-fluid-base leading-relaxed">
                   {activePairing.description}
                 </p>
               </div>

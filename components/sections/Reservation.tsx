@@ -111,7 +111,7 @@ export function Reservation() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="font-body text-ink/70 text-fluid-base max-w-md mx-auto">
+            <p className="font-body text-ink/80 text-fluid-base max-w-md mx-auto">
               {RESERVATION_COPY.subheading}
             </p>
           </ScrollReveal>
@@ -180,7 +180,7 @@ export function Reservation() {
                         disabled={status === 'loading'}
                         className="input-luxury pl-10"
                       />
-                      <Calendar className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none" />
+                      <Calendar className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 text-ink/60 pointer-events-none" />
                     </div>
                     {errors.preferredDate && (
                       <p className="text-xs text-burgundy mt-1">{errors.preferredDate.message}</p>
@@ -215,7 +215,7 @@ export function Reservation() {
                           </select>
                         )}
                       />
-                      <Users className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none" />
+                      <Users className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 text-ink/60 pointer-events-none" />
                     </div>
                   </div>
                 </div>
@@ -286,7 +286,7 @@ export function Reservation() {
               </p>
 
               {reservationId && (
-                <p className="font-body text-muted text-sm">
+                <p className="font-body text-ink/60 text-sm">
                   Referință: <span className="font-mono text-burgundy">{reservationId.slice(0, 8)}</span>
                 </p>
               )}

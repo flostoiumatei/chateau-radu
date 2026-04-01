@@ -105,7 +105,7 @@ export function AgeGate() {
                 {BRAND.name}
               </span>
               <div className="mt-2">
-                <span className="font-display italic text-cream/80 text-fluid-base">
+                <span className="font-display italic text-cream/90 text-fluid-base">
                   {BRAND.taglineFr}
                 </span>
               </div>
@@ -130,7 +130,7 @@ export function AgeGate() {
             </m.h1>
 
             <m.p
-              className="font-body text-cream/70 text-fluid-base mb-8"
+              className="font-body text-cream/85 text-fluid-base mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9, duration: MOTION.duration.medium }}
@@ -193,7 +193,7 @@ export function AgeGate() {
 
             {/* Legal text */}
             <m.p
-              className="mt-8 text-xs text-cream/50 max-w-xs leading-relaxed"
+              className="mt-8 text-xs text-cream/70 max-w-xs leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2, duration: MOTION.duration.medium }}

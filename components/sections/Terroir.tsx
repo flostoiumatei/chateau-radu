@@ -157,7 +157,7 @@ export function Terroir() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="font-body text-ink/70 text-fluid-base leading-relaxed mb-10">
+              <p className="font-body text-ink/80 text-fluid-base leading-relaxed mb-10">
                 {TERROIR_COPY.description}
               </p>
             </ScrollReveal>
@@ -176,7 +176,7 @@ export function Terroir() {
                       <h3 className="font-brand text-burgundy text-sm tracking-wider uppercase mb-1">
                         {stat.title}
                       </h3>
-                      <p className="font-body text-ink/60 text-sm">
+                      <p className="font-body text-ink/75 text-sm">
                         {stat.description}
                       </p>
                     </div>

@@ -80,7 +80,7 @@ export function WineClub() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <p className="font-body text-cream/70 text-fluid-base mb-10 max-w-md mx-auto">
+          <p className="font-body text-cream/85 text-fluid-base mb-10 max-w-md mx-auto">
             {WINE_CLUB_COPY.subheading}
           </p>
         </ScrollReveal>

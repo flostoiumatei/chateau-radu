@@ -39,14 +39,14 @@ function VintageCard({ vintage, index }: { vintage: typeof VINTAGES[number]; ind
       {/* Year */}
       <h3
         className={`font-brand text-5xl md:text-6xl mb-4 ${
-          isCurrentVintage ? 'text-gold' : 'text-burgundy/60'
+          isCurrentVintage ? 'text-gold' : 'text-burgundy/75'
         }`}
       >
         {vintage.year}
       </h3>
 
       {/* Note */}
-      <p className="font-body text-ink/70 text-sm md:text-base leading-relaxed">
+      <p className="font-body text-ink/80 text-sm md:text-base leading-relaxed">
         {vintage.note}
       </p>
 
@@ -117,7 +117,7 @@ export function VintageTimeline() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <p className="font-body text-ink/60 text-fluid-base mt-4 max-w-md mx-auto">
+            <p className="font-body text-ink/75 text-fluid-base mt-4 max-w-md mx-auto">
               Fiecare an aduce o expresie unică. Glisați pentru a explora.
             </p>
           </ScrollReveal>
@@ -154,7 +154,7 @@ export function VintageTimeline() {
         {/* Drag hint (mobile) */}
         <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-2 pointer-events-none md:hidden">
           <m.span
-            className="font-body text-xs text-muted"
+            className="font-body text-xs text-ink/70"
             initial={{ opacity: 0 }}
             animate={{ opacity: isDragging ? 0 : 1 }}
             transition={{ duration: MOTION.duration.fast }}

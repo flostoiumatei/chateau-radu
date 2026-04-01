@@ -139,7 +139,7 @@ export function Hero() {
 
         {/* Grape variety */}
         <m.p
-          className="font-brand text-cream/70 text-fluid-xs tracking-[0.4em] uppercase mb-8"
+          className="font-brand text-cream/85 text-fluid-xs tracking-[0.4em] uppercase mb-8"
           variants={itemVariants}
         >
           {HERO_COPY.grape}
@@ -152,7 +152,7 @@ export function Hero() {
 
         {/* Tagline */}
         <m.p
-          className="font-display italic text-cream/80 text-fluid-lg mb-12"
+          className="font-display italic text-cream/90 text-fluid-lg mb-12"
           variants={itemVariants}
         >
           {HERO_COPY.tagline}
@@ -191,7 +191,7 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <m.button
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold/60 hover:text-gold transition-colors scroll-indicator"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold/80 hover:text-gold transition-colors scroll-indicator"
         onClick={handleScrollDown}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -65,7 +65,7 @@ export function Contact() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <p className="font-body text-ink/70 text-fluid-base mb-10">
+                <p className="font-body text-ink/80 text-fluid-base mb-10">
                   {CONTACT_COPY.subheading}
                 </p>
               </ScrollReveal>
@@ -265,7 +265,7 @@ export function Contact() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-cream/70 hover:text-gold transition-colors"
+                  className="font-body text-sm text-cream/90 hover:text-gold transition-colors"
                 >
                   {link.label}
                 </a>
@@ -274,7 +274,7 @@ export function Contact() {
 
             {/* Legal */}
             <div>
-              <p className="font-body text-xs text-cream/50 leading-relaxed">
+              <p className="font-body text-xs text-cream/70 leading-relaxed">
                 {FOOTER_COPY.legal}
               </p>
               <p className="font-brand text-gold text-sm mt-2">
@@ -288,7 +288,7 @@ export function Contact() {
 
           {/* Copyright */}
           <div className="text-center">
-            <p className="font-body text-xs text-cream/50">
+            <p className="font-body text-xs text-cream/70">
               {FOOTER_COPY.copyright}
             </p>
           </div>
