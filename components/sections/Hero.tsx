@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { m, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { HERO_COPY, MOTION } from '@/lib/constants';
@@ -83,22 +84,23 @@ export function Hero() {
       id="hero"
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
     >
-      {/* Solid burgundy background */}
-      <div className="absolute inset-0 bg-burgundy-deep" />
+      {/* Background image with fallback */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/bottle-hero.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          quality={85}
+        />
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0 bg-burgundy-deep/70" />
+      </div>
 
       {/* Noise texture overlay */}
       <div className="absolute inset-0 noise-overlay" />
-
-      {/* Subtle pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-gold) 1px, transparent 0)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
 
       {/* Content with parallax */}
       <m.div

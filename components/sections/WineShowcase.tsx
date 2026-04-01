@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { m, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { WINE_SHOWCASE, MOTION } from '@/lib/constants';
 import { SectionLabel } from '@/components/ui/SectionLabel';
@@ -81,9 +82,16 @@ export function WineShowcase() {
             <SectionLabel>Savoare 2025</SectionLabel>
           </div>
 
-          {/* Artistic drop */}
+          {/* Bottle image */}
           <div className="flex justify-center mb-16">
-            <WineDrop className="w-16 h-24 opacity-80" />
+            <Image
+              src="/images/bottle-hero.jpg"
+              alt="Savoare 2025 — Château Radu Muscat Ottonel"
+              width={192}
+              height={384}
+              className="w-48 h-auto object-contain drop-shadow-xl"
+              quality={85}
+            />
           </div>
 
           {/* Frames as cards */}
@@ -147,41 +155,24 @@ export function WineShowcase() {
 
         <div className="max-w-7xl mx-auto px-8 w-full">
           <div className="grid grid-cols-2 gap-16 items-center">
-            {/* Left: Abstract visual */}
+            {/* Left: Bottle image */}
             <div className="flex justify-center relative">
-              <div className="relative w-64 h-64">
-                {/* Animated concentric circles */}
-                <m.div
-                  className="absolute inset-0 rounded-full border-2 border-gold/20"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+              <m.div
+                className="relative"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: MOTION.duration.slow, ease: MOTION.easing }}
+              >
+                <Image
+                  src="/images/bottle-hero.jpg"
+                  alt="Savoare 2025 — Château Radu Muscat Ottonel"
+                  width={288}
+                  height={576}
+                  className="w-72 h-auto object-contain drop-shadow-2xl"
+                  quality={85}
                 />
-                <m.div
-                  className="absolute inset-4 rounded-full border border-gold/30"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-                />
-                <m.div
-                  className="absolute inset-8 rounded-full border border-burgundy/20"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                />
-
-                {/* Center content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="font-brand text-gold text-xs tracking-[0.3em] uppercase block mb-2">
-                      MUSCAT
-                    </span>
-                    <span className="font-display italic text-burgundy text-3xl block">
-                      Savoare
-                    </span>
-                    <span className="font-brand text-gold text-xs tracking-[0.3em] uppercase block mt-2">
-                      2025
-                    </span>
-                  </div>
-                </div>
-              </div>
+              </m.div>
             </div>
 
             {/* Right: Content frames */}
