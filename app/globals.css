@@ -407,6 +407,16 @@ body.custom-cursor select {
   scroll-snap-align: start;
 }
 
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 .content-padding {
   padding-left: var(--content-padding);
   padding-right: var(--content-padding);
