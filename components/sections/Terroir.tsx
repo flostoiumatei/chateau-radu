@@ -132,7 +132,7 @@ export function Terroir() {
         className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
         style={shouldReduceMotion || isMobile ? {} : { y: backgroundY, opacity: textOpacity }}
       >
-        <span className="font-brand text-[15vw] md:text-[20vw] text-burgundy/[0.03] tracking-[0.3em] select-none whitespace-nowrap">
+        <span className="font-brand text-[15vw] md:text-[20vw] text-burgundy/[0.03] tracking-[0.1em] md:tracking-[0.3em] select-none overflow-hidden">
           TERROIR
         </span>
       </m.div>

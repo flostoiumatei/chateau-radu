@@ -148,7 +148,7 @@ export function Story() {
           style={shouldReduceMotion || isMobile ? {} : { y: parallaxY2 }}
         >
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-            <span className="font-brand text-[12vw] md:text-[15vw] text-burgundy/[0.04] tracking-[0.2em] select-none whitespace-nowrap">
+            <span className="font-brand text-[12vw] md:text-[15vw] text-burgundy/[0.04] tracking-[0.1em] md:tracking-[0.2em] select-none overflow-hidden">
               MOȘTENIRE
             </span>
           </div>
@@ -216,7 +216,7 @@ export function Story() {
           </div>
 
           {/* Stats row */}
-          <div className="grid grid-cols-3 gap-8 md:gap-12 pt-8 border-t border-gold/20">
+          <div className="grid grid-cols-3 gap-4 md:gap-12 pt-8 border-t border-gold/20">
             {STORY_COPY.stats.map((stat, index) => (
               <ScrollReveal
                 key={stat.label}
@@ -228,10 +228,10 @@ export function Story() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.5 }}
                 >
-                  <span className="font-brand text-gold text-fluid-hero block">
+                  <span className="font-brand text-gold text-fluid-4xl md:text-fluid-5xl block">
                     <AnimatedCounter value={stat.value} />
                   </span>
-                  <span className="font-brand text-cream/80 text-fluid-sm tracking-[0.2em] uppercase mt-2 block">
+                  <span className="font-brand text-cream/80 text-fluid-xs md:text-fluid-sm tracking-[0.1em] md:tracking-[0.2em] uppercase mt-2 block">
                     {stat.label}
                   </span>
                 </m.div>

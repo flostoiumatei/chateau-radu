@@ -62,6 +62,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -401,6 +402,11 @@ body.custom-cursor select {
   padding-bottom: var(--section-padding);
 }
 
+/* Snap scrolling for sections */
+.snap-section {
+  scroll-snap-align: start;
+}
+
 .content-padding {
   padding-left: var(--content-padding);
   padding-right: var(--content-padding);
@@ -418,6 +424,10 @@ body.custom-cursor select {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-snap-type: none;
   }
 }
 

@@ -46,36 +46,16 @@ export default function Home() {
 
       {/* Main content */}
       <main id="main-content">
-        {/* Hero section */}
-        <Hero />
-
-        {/* Wine Showcase (sticky scroll) */}
-        <WineShowcase />
-
-        {/* Story / Parallax section */}
-        <Story />
-
-
-        {/* Tasting Notes (interactive wheel) */}
-        <TastingNotes />
-
-        {/* Vintage Timeline (horizontal scroll) */}
-        <VintageTimeline />
-
-        {/* Terroir */}
-        <Terroir />
-
-        {/* Food Pairing */}
-        <Pairing />
-
-        {/* Wine Club / Newsletter */}
-        <WineClub />
-
-        {/* Reservation form */}
-        <Reservation />
-
-        {/* Contact & Footer */}
-        <Contact />
+        <div className="snap-section"><Hero /></div>
+        <div className="snap-section"><WineShowcase /></div>
+        <div className="snap-section"><Story /></div>
+        <div className="snap-section"><TastingNotes /></div>
+        <div className="snap-section"><VintageTimeline /></div>
+        <div className="snap-section"><Terroir /></div>
+        <div className="snap-section"><Pairing /></div>
+        <div className="snap-section"><WineClub /></div>
+        <div className="snap-section"><Reservation /></div>
+        <div className="snap-section"><Contact /></div>
       </main>
     </>
   );

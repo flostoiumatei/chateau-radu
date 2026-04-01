@@ -105,7 +105,7 @@ export function Hero() {
           <div className="max-w-lg text-center lg:text-left">
             {/* Ornament text */}
             <m.p
-              className="font-display italic text-gold text-fluid-sm tracking-[0.2em] mb-6"
+              className="font-display italic text-gold text-fluid-sm tracking-[0.05em] sm:tracking-[0.2em] mb-6"
               variants={itemVariants}
             >
               {HERO_COPY.ornament}
@@ -118,7 +118,7 @@ export function Hero() {
 
             {/* Vintage year */}
             <m.p
-              className="font-brand text-gold text-fluid-2xl tracking-[0.5em] mb-4"
+              className="font-brand text-gold text-fluid-2xl tracking-[0.2em] sm:tracking-[0.5em] mb-4"
               variants={itemVariants}
             >
               {HERO_COPY.vintage}
@@ -134,7 +134,7 @@ export function Hero() {
 
             {/* Grape variety */}
             <m.p
-              className="font-brand text-cream/85 text-fluid-xs tracking-[0.4em] uppercase mb-8"
+              className="font-brand text-cream/85 text-fluid-xs tracking-[0.15em] sm:tracking-[0.4em] uppercase mb-8"
               variants={itemVariants}
             >
               {HERO_COPY.grape}
