@@ -4,12 +4,12 @@
 
 export const BRAND = {
   name: 'Château Radu',
-  taglineFr: 'Avec amour et passion',
-  taglineRo: 'Cu dragoste și pasiune',
+  taglineFr: 'Le vin est la poésie de la terre',
+  taglineRo: 'Din mâinile bunicului, în paharul tău',
   wine: 'Savoare',
   grape: 'Muscat Ottonel',
   vintage: '2025',
-  bottleNote: 'Mis en bouteille avec amour et passion',
+  bottleNote: 'Mis en bouteille avec âme et patience',
 } as const;
 
 export const COLORS = {
@@ -51,13 +51,13 @@ export const NAV_LINKS = [
 // ==============================
 
 export const HERO_COPY = {
-  ornament: 'Mis en bouteille avec amour et passion',
+  ornament: 'Le vin est la poésie de la terre',
   title: 'Château Radu',
   vintage: '2025',
   wineName: 'Savoare',
   grape: 'MUSCAT OTTONEL',
-  tagline: 'Cu dragoste și pasiune',
-  ctaPrimary: 'Descoperă',
+  tagline: 'Din mâinile bunicului, în paharul tău',
+  ctaPrimary: 'Descoperă povestea',
   ctaSecondary: 'Rezervă o degustare',
 } as const;
 
@@ -67,16 +67,16 @@ export const HERO_COPY = {
 
 export const STORY_COPY = {
   label: 'POVESTEA NOASTRĂ',
-  heading: 'Trei surori, o singură pasiune',
-  body1: 'Château Radu poartă numele bunicului nostru — cel care a plantat primele viței de Muscat Ottonel în dealurile pline de soare ale României. Suntem trei surori, două dintre noi gemene, unite de aceeași dragoste pentru pământ, vie și arta vinului.',
-  body2: 'Savoare este vinul care ne reprezintă — un cuvée în care fiecare dintre noi și-a pus sufletul. Împreună îmbinăm tradiția cu inovația, intuiția artistică cu rigoarea, viziunea cu pasiunea.',
-  body3: 'Numele Savoare vine din dorința noastră de a crea un vin care să fie savurat cu adevărat — încet, cu dragoste, în compania celor dragi. Este omagiul nostru adus bunicului și pământului care ne-a crescut.',
-  frenchAccent: '« Mis en bouteille avec amour et passion »',
-  sistersNote: 'Trei surori. Două gemene. O singură pasiune.',
+  heading: 'Unde începe totul',
+  body1: 'Era o dimineață de toamnă când bunicul a îngenuncheat în pământul rece și a sădit prima viță de Muscat Ottonel. Își ținea răsadurile ca pe niște copii — le vorbea, le cânta, le dădea nume. Spunea că pământul ascultă. Că dacă pui suflet în rădăcini, el își va aminti. Château Radu nu este doar un nume pe o etichetă. Este numele lui — și tot ce ne-a lăsat moștenire.',
+  body2: 'Suntem trei surori — două gemene și cea mai mare. Cea mare ține cheia cramei; ea știe la ce temperatură respiră vinul și când e momentul să-l lași în pace. Una dintre gemene are nasul — simte ploaia în butoi și soarele în must. Cealaltă vede ce alții nu pot: ea desenează etichetele, alege cuvintele, transformă un vin în poveste. Trei fire diferite, același țesut.',
+  body3: '« Faceți un vin care să-i facă pe oameni să rămână la masă. » Așa ne-a spus bunicul într-o seară, cu paharul în mână și ochii spre vie. Nu am înțeles atunci. Înțelegem acum. Savoare nu este doar un nume — este o promisiune. Să savurezi încet. Să rămâi. Să simți că timpul se oprește, măcar pentru o clipă.',
+  frenchAccent: '« Le temps ne compte plus quand le vin est bon »',
+  sistersNote: '« Puneți suflet în rădăcini, și pământul își va aminti. »',
   stats: [
-    { value: '3', label: 'Surori' },
-    { value: '2', label: 'Gemene' },
-    { value: '1', label: 'Pasiune' },
+    { value: '2', label: 'Generații' },
+    { value: '4', label: 'Hectare' },
+    { value: '1987', label: 'Prima Vie' },
   ],
 } as const;
 
@@ -86,29 +86,29 @@ export const STORY_COPY = {
 
 export const TASTING_COPY = {
   label: 'NOTE DE DEGUSTARE',
-  heading: 'Experiența senzorială',
+  heading: 'Cum vorbește vinul',
   visual: {
     title: 'Vizual',
-    description: 'Robă aurie pală, limpede, cu reflexe verzui caracteristice unui Muscat Ottonel tânăr.',
+    description: 'Ține paharul spre lumină. Vezi aurul pal, cu un licăr verzui care tremură la margine — ca dimineața în vie, înainte să se ridice ceața.',
     intensity: 70,
   },
   aroma: {
     title: 'Buchet',
-    description: 'Flori albe, trandafir muscat, piersică albă și o notă delicată de litchi. Extraordinar de expresiv.',
+    description: 'Închide ochii și inspiră. Flori albe, trandafir muscat, piersică albă care abia s-a copt. Și undeva, în adâncime — o notă de litchi pe care o simți doar dacă ai răbdare.',
     intensity: 90,
   },
   taste: {
     title: 'La Gust',
-    description: 'Prospețime elegantă, dulceață reziduală fină, final mineral și aromatic, lung și plăcut.',
+    description: 'Prima sorbitură e prospețime pură. A doua dezvăluie o dulceață fină care nu insistă. A treia — un final mineral care rămâne, ca amintirea unei seri perfecte.',
     intensity: 85,
   },
   servingTemp: '8 – 10°C',
   sensoryWheel: [
-    { segment: 'Vizual', description: 'Robă aurie pală, limpede, cu reflexe verzui caracteristice.' },
-    { segment: 'Aromatic', description: 'Flori albe, trandafir muscat, piersică albă, litchi.' },
-    { segment: 'Gust', description: 'Prospețime elegantă, dulceață reziduală fină.' },
-    { segment: 'Finișeu', description: 'Final mineral și aromatic, lung și plăcut.' },
-    { segment: 'Textură', description: 'Corp mediu, aciditate bine integrată, elegant.' },
+    { segment: 'Vizual', description: 'Auriu pal, limpede, cu reflexe verzui care joacă în lumină.' },
+    { segment: 'Aromatic', description: 'Flori albe, trandafir muscat, piersică albă, litchi discret.' },
+    { segment: 'Gust', description: 'Prospețime elegantă, dulceață reziduală care nu insistă.' },
+    { segment: 'Finișeu', description: 'Final mineral și aromatic — lung, lin, ca o seară de vară.' },
+    { segment: 'Textură', description: 'Corp mediu, aciditate bine integrată, mătăsos și elegant.' },
     { segment: 'Pairing', description: 'Fructe de mare, brânzeturi fine, deserturi ușoare.' },
   ],
 } as const;
@@ -121,19 +121,19 @@ export const VINTAGES = [
   {
     year: '2023',
     status: 'coming_soon',
-    note: 'Primul an de experimentare. În curând vom dezvălui povestea.',
+    note: 'Anul în care am îndrăznit. Primul must, primele greșeli, primele lecții. Bunicul ar fi zâmbit.',
     badge: 'În curând',
   },
   {
     year: '2024',
     status: 'sold_out',
-    note: 'Ediție limitată, complet epuizată. Un an memorabil.',
+    note: 'Anul în care am știut. S-a dus din mână în mână, de la masă la masă, până nu a mai rămas nici o sticlă.',
     badge: 'Epuizat',
   },
   {
     year: '2025',
     status: 'current',
-    note: 'Cuvée-ul Savoare. Expresia perfectă a viziunii noastre.',
+    note: 'Anul în care am ajuns. Expresia cea mai pură a cine suntem — trei surori, un pământ, o promisiune ținută.',
     badge: 'Disponibil',
   },
 ] as const;
@@ -144,23 +144,23 @@ export const VINTAGES = [
 
 export const TERROIR_COPY = {
   label: 'TERROIR',
-  heading: 'Sufletul Terasei',
-  description: 'Vinurile noastre sunt expresia autentică a pământului românesc, cultivate cu respect pentru tradiție și natură.',
+  heading: 'Pământul care ascultă',
+  description: 'Există un loc în dealurile României unde dimineața miroase a lut umed și seara aduce brize care șoptesc printre rândurile de viță. Aici, solul ține minte fiecare ploaie. Aici, soarele știe exact când să se retragă. Bunicul spunea: « Ce terroir — c\'est magnifique. » Avea dreptate.',
   stats: [
     {
       title: 'Altitudine',
       value: '350m',
-      description: 'Deasupra nivelului mării, pentru răcoare și complexitate.',
+      description: 'Unde ceața dimineții întâlnește primul rază de soare — răcoarea care dă complexitate.',
     },
     {
       title: 'Sol',
       value: 'Argilos-Calcaros',
-      description: 'Minerale esențiale pentru structură și finețe.',
+      description: 'Argila ține apa ca o mamă. Calcarul dă mineralitatea care tremură pe limbă.',
     },
     {
       title: 'Microclimat',
       value: 'Continental',
-      description: 'Nopți răcoroase, zile însorite — ideal pentru aromă.',
+      description: 'Nopți răcoroase care păstrează aroma, zile calde care coc strugurii cu răbdare.',
     },
   ],
 } as const;
@@ -220,12 +220,12 @@ export const PAIRINGS = [
 
 export const WINE_CLUB_COPY = {
   label: 'CERCUL CHÂTEAU RADU',
-  heading: 'Intrați în cercul nostru',
-  subheading: 'Fiți primii care află de noile recolte, degustări exclusive și momente speciale. Réservé aux passionnés.',
+  heading: 'Rămâi la masă cu noi',
+  subheading: 'Primești vești despre recolte noi, degustări private și poveștile din spatele fiecărei sticle. Pentru cei care știu că un vin bun merită răbdare.',
   placeholder: 'adresa@email.ro',
-  button: 'Abonează-te',
-  success: 'Bine ați venit în cerc. Avec plaisir.',
-  alreadySubscribed: 'Ești deja abonat!',
+  button: 'Intră în cerc',
+  success: 'Bine ai venit la masa noastră.',
+  alreadySubscribed: 'Ești deja la masa noastră.',
   error: 'A apărut o eroare. Vă rugăm încercați din nou.',
 } as const;
 
@@ -235,8 +235,8 @@ export const WINE_CLUB_COPY = {
 
 export const RESERVATION_COPY = {
   label: 'DEGUSTĂRI PRIVATE',
-  heading: 'Rezervați o experiență',
-  subheading: 'Pentru degustări private, evenimente de grup sau parteneriate, suntem bucuroși să vă primim.',
+  heading: 'Veniți la noi acasă',
+  subheading: 'O degustare la Château Radu nu este un eveniment — este o seară între prieteni. Veniți, și vă vom povesti tot ce vinul nu poate spune singur.',
   button: 'Trimite cererea',
   success: 'Cererea dvs. a fost înregistrată. Vă vom contacta în curând. Merci.',
   error: 'A apărut o eroare. Vă rugăm încercați din nou.',
@@ -275,7 +275,7 @@ export const CONTACT_COPY = {
 
 export const FOOTER_COPY = {
   logo: 'CHÂTEAU RADU',
-  tagline: 'Avec amour et passion',
+  tagline: 'Le vin est la poésie de la terre',
   copyright: '© 2025 Château Radu · Savoare · Muscat Ottonel · Toate drepturile rezervate',
   legal: 'Consumul excesiv de alcool dăunează sănătății. A se consuma cu moderație.',
   ageWarning: '+18',
@@ -311,22 +311,22 @@ export const WINE_SHOWCASE = {
   frames: [
     {
       id: 'reveal',
-      title: 'Descoperă',
-      description: 'Savoare se dezvăluie. O expresie pură a soiului Muscat Ottonel.',
+      title: 'Prima turnare',
+      description: 'Primul pahar este o promisiune. Savoare se dezvăluie treptat — mai întâi parfumul, apoi lumina, apoi liniștea care se așterne la masă.',
     },
     {
       id: 'label',
       title: 'Eticheta',
-      description: 'Design inspirat din tradiția vinurilor de castel, cu accente moderne și elegante.',
+      description: 'Desenată de mâna care vede ce alții nu pot. Fiecare linie poartă amprenta surorii artiste — cea care transformă un vin în poveste vizuală.',
     },
     {
       id: 'pour',
-      title: 'Esența',
-      description: 'Culoare aurie pală, reflexe verzui — semne ale prospețimii și tinereții.',
+      title: 'Culoarea',
+      description: 'Auriu pal cu reflexe verzui — culoarea dimineților de toamnă în vie, când roua încă strălucește pe ciorchini.',
     },
     {
       id: 'specs',
-      title: 'Specificații',
+      title: 'Detalii',
       specs: [
         { label: 'Volum alcoolic', value: '12.5%' },
         { label: 'Aciditate', value: '5.8 g/l' },
@@ -343,7 +343,7 @@ export const WINE_SHOWCASE = {
 
 export const SEO = {
   title: 'Château Radu | Savoare 2025 — Muscat Ottonel Premium',
-  description: 'Descoperă Savoare 2025, un Muscat Ottonel de excepție creat cu dragoste și pasiune. Château Radu — vinuri românești premium.',
+  description: 'Descoperă Savoare 2025 — un Muscat Ottonel născut din pământul românesc, crescut de trei surori, purtat de povestea bunicului. Château Radu.',
   keywords: 'vin romanesc, muscat ottonel, chateau radu, savoare, vin premium, degustare vin, vin alb',
   ogImage: '/og-image.jpg',
   siteUrl: 'https://chateau-radu.ro',

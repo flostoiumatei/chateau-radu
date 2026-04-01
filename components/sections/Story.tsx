@@ -128,8 +128,14 @@ export function Story() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="font-body text-cream/90 text-fluid-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="font-body text-cream/90 text-fluid-lg leading-relaxed max-w-2xl mx-auto mb-8">
               {STORY_COPY.body1}
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.3}>
+            <p className="font-display italic text-gold/70 text-fluid-base">
+              « Les racines se souviennent »
             </p>
           </ScrollReveal>
         </div>
@@ -143,22 +149,22 @@ export function Story() {
         >
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
             <span className="font-brand text-[12vw] md:text-[15vw] text-burgundy/[0.04] tracking-[0.2em] select-none whitespace-nowrap">
-              SURORI
+              MOȘTENIRE
             </span>
           </div>
         </m.div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 py-24 text-center">
           <ScrollReveal>
-            <blockquote className="font-display italic text-burgundy text-fluid-2xl md:text-fluid-3xl leading-relaxed mb-8">
-              &ldquo;{STORY_COPY.body2}&rdquo;
-            </blockquote>
+            <p className="font-body text-ink/85 text-fluid-lg leading-relaxed max-w-2xl mx-auto mb-10">
+              {STORY_COPY.body2}
+            </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="font-body text-ink/85 text-fluid-base leading-relaxed max-w-2xl mx-auto mb-8">
+            <blockquote className="font-display italic text-burgundy text-fluid-2xl md:text-fluid-3xl leading-relaxed mb-8">
               {STORY_COPY.body3}
-            </p>
+            </blockquote>
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
@@ -251,7 +257,7 @@ export function Story() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="font-body text-ink/85 text-fluid-lg leading-relaxed max-w-2xl mx-auto mb-8">
-              Vinul care ne unește. Un Muscat Ottonel de excepție, creat cu dragoste pentru cei care știu să savureze momentele prețioase ale vieții.
+              Vinul pentru care bunicul ar fi rămas toată seara la masă. Un Muscat Ottonel care nu se grăbește — se dezvăluie încet, ca o poveste bună, și te face să uiți de ceas.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
