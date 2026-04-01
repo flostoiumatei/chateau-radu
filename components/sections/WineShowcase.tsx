@@ -85,7 +85,7 @@ export function WineShowcase() {
           {/* Bottle image */}
           <div className="flex justify-center mb-16">
             <Image
-              src="/images/bottle-hero.jpg"
+              src="/images/bottle-hero.png"
               alt="Savoare 2025 — Château Radu Muscat Ottonel"
               width={192}
               height={384}
@@ -165,7 +165,7 @@ export function WineShowcase() {
                 transition={{ duration: MOTION.duration.slow, ease: MOTION.easing }}
               >
                 <Image
-                  src="/images/bottle-hero.jpg"
+                  src="/images/bottle-hero.png"
                   alt="Savoare 2025 — Château Radu Muscat Ottonel"
                   width={288}
                   height={576}

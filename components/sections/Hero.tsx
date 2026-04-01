@@ -87,7 +87,7 @@ export function Hero() {
       {/* Background image with fallback */}
       <div className="absolute inset-0">
         <Image
-          src="/images/bottle-hero.jpg"
+          src="/images/bottle-hero.png"
           alt=""
           fill
           sizes="100vw"
