@@ -117,7 +117,7 @@ export function Hero() {
         </m.p>
 
         {/* Main title with letter animation */}
-        <h1 className="font-brand text-cream text-fluid-hero tracking-[0.15em] leading-none mb-4">
+        <h1 className="font-brand text-cream text-fluid-hero tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.15em] leading-tight mb-4 whitespace-nowrap">
           <AnimatedTitle text={HERO_COPY.title} />
         </h1>
 

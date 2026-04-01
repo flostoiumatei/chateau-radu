@@ -101,7 +101,7 @@ export function AgeGate() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: MOTION.duration.medium }}
             >
-              <span className="font-brand text-gold text-fluid-4xl tracking-wider">
+              <span className="font-brand text-gold text-fluid-3xl sm:text-fluid-4xl tracking-wide sm:tracking-wider whitespace-nowrap">
                 {BRAND.name}
               </span>
               <div className="mt-2">
