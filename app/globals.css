@@ -1,26 +1,431 @@
 @import "tailwindcss";
 
+/* ==============================
+   CHÂTEAU RADU DESIGN SYSTEM
+   ============================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --color-cream: #f5efe4;
+  --color-parchment: #ece4d4;
+  --color-burgundy: #5a1a2a;
+  --color-burgundy-deep: #3d0f1c;
+  --color-gold: #b8922a;
+  --color-gold-light: #d4a843;
+  --color-ink: #1e1209;
+  --color-muted: #7a6a58;
+  --color-surface: rgba(245, 239, 228, 0.85);
+
+  /* Typography */
+  --font-display: var(--font-cormorant);
+  --font-brand: var(--font-cinzel);
+  --font-body: var(--font-eb-garamond);
+
+  /* Motion */
+  --ease-luxury: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-fast: 0.3s;
+  --duration-medium: 0.6s;
+  --duration-slow: 1s;
+  --duration-cinematic: 1.6s;
+
+  /* Spacing */
+  --section-padding: clamp(4rem, 10vw, 8rem);
+  --content-padding: clamp(1rem, 5vw, 2rem);
 }
 
+/* Tailwind v4 theme configuration */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--color-cream);
+  --color-parchment: var(--color-parchment);
+  --color-burgundy: var(--color-burgundy);
+  --color-burgundy-deep: var(--color-burgundy-deep);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+  --color-surface: var(--color-surface);
+
+  --font-display: var(--font-cormorant);
+  --font-brand: var(--font-cinzel);
+  --font-body: var(--font-eb-garamond);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==============================
+   BASE STYLES
+   ============================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body), Georgia, serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Hide native cursor when custom cursor is active */
+body.custom-cursor {
+  cursor: none;
+}
+
+body.custom-cursor * {
+  cursor: none !important;
+}
+
+/* Preserve cursor for inputs */
+body.custom-cursor input,
+body.custom-cursor textarea,
+body.custom-cursor select {
+  cursor: text !important;
+}
+
+/* ==============================
+   TYPOGRAPHY UTILITIES
+   ============================== */
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.font-brand {
+  font-family: var(--font-brand), Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-body), Georgia, serif;
+}
+
+/* Fluid Typography */
+.text-fluid-xs {
+  font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+}
+
+.text-fluid-sm {
+  font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+}
+
+.text-fluid-base {
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+}
+
+.text-fluid-lg {
+  font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+}
+
+.text-fluid-xl {
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+}
+
+.text-fluid-2xl {
+  font-size: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+}
+
+.text-fluid-3xl {
+  font-size: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+}
+
+.text-fluid-4xl {
+  font-size: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+}
+
+.text-fluid-5xl {
+  font-size: clamp(3rem, 2rem + 5vw, 5rem);
+}
+
+.text-fluid-hero {
+  font-size: clamp(3.5rem, 2.5rem + 7vw, 8rem);
+}
+
+/* ==============================
+   GOLD ACCENTS
+   ============================== */
+
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.gold-border-bottom {
+  border-bottom: 1px solid var(--color-gold);
+}
+
+/* ==============================
+   NOISE TEXTURE OVERLAY
+   ============================== */
+
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==============================
+   FORM STYLES
+   ============================== */
+
+.input-luxury {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-muted);
+  padding: 1rem 0 0.5rem;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 1rem;
+  color: var(--color-ink);
+  transition: border-color var(--duration-fast) var(--ease-luxury);
+  width: 100%;
+}
+
+.input-luxury:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.input-luxury::placeholder {
+  color: var(--color-muted);
+  opacity: 0.7;
+}
+
+/* Floating Label */
+.input-group {
+  position: relative;
+}
+
+.input-group label {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 1rem;
+  color: var(--color-muted);
+  pointer-events: none;
+  transition: all var(--duration-fast) var(--ease-luxury);
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ==============================
+   BUTTON STYLES
+   ============================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  background: var(--color-burgundy);
+  color: var(--color-cream);
+  font-family: var(--font-brand), Georgia, serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-luxury);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold);
+  transform: translateY(100%);
+  transition: transform var(--duration-medium) var(--ease-luxury);
+}
+
+.btn-primary:hover::before {
+  transform: translateY(0);
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary:hover {
+  color: var(--color-burgundy-deep);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--color-gold);
+  font-family: var(--font-brand), Georgia, serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-gold);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-luxury);
+}
+
+.btn-secondary:hover {
+  background: var(--color-gold);
+  color: var(--color-burgundy-deep);
+}
+
+/* ==============================
+   SCROLL INDICATOR
+   ============================== */
+
+@keyframes scroll-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.scroll-indicator {
+  animation: scroll-bounce 2s var(--ease-luxury) infinite;
+}
+
+/* ==============================
+   SELECTION STYLES
+   ============================== */
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-burgundy-deep);
+}
+
+::-moz-selection {
+  background: var(--color-gold);
+  color: var(--color-burgundy-deep);
+}
+
+/* ==============================
+   FOCUS STYLES (Accessibility)
+   ============================== */
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-burgundy);
+  color: var(--color-cream);
+  padding: 1rem 2rem;
+  z-index: 10000;
+  transition: top var(--duration-fast) var(--ease-luxury);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ==============================
+   SCROLLBAR STYLES
+   ============================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-burgundy);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* ==============================
+   SECTION UTILITIES
+   ============================== */
+
+.section-padding {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.content-padding {
+  padding-left: var(--content-padding);
+  padding-right: var(--content-padding);
+}
+
+/* ==============================
+   REDUCED MOTION
+   ============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==============================
+   MOBILE OPTIMIZATIONS
+   ============================== */
+
+@media (max-width: 768px) {
+  .parallax-mobile-off {
+    transform: none !important;
+  }
+}
+
+/* Ensure no horizontal overflow */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
